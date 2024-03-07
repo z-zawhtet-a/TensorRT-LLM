@@ -163,8 +163,6 @@ def parse_arguments():
 
     args = parser.parse_args()
 
-    logger.set_level(args.log_level)
-
     if args.model_dir is not None:
         global hf_gpt
         logger.info(f'Loading HF Phi model from {args.model_dir}...')
@@ -281,7 +279,6 @@ def build_rank_engine(builder: Builder,
 
 def build(rank, args):
     torch.cuda.set_device(rank % args.gpus_per_node)
-    tensorrt_llm.logger.set_level(args.log_level)
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
 
