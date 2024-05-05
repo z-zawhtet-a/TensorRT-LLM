@@ -66,6 +66,10 @@ def parse_arguments():
                             "medium.en",
                             "large-v3",
                             "large-v2",
+                            "distil-whisper-small-th",
+                            "distil-whisper-medium-th",
+                            "whisper-small-th",
+                            "whisper-medium-th"
                         ])
     parser.add_argument('--quantize_dir', type=str, default="quantize/1-gpu")
     parser.add_argument('--dtype',
